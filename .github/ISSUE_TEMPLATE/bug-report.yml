@@ -1,0 +1,55 @@
+name: Project Worship bug report
+description: Report a problem with Project Worship or this download website.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve Project Worship. This is a public report. Do not include activation codes, credentials, personal information, real church data, private file paths, database files, or backups.
+  - type: input
+    id: app-version
+    attributes:
+      label: Project Worship version
+      description: Find this in Project Worship Settings, or enter “website” for a website problem.
+      placeholder: 0.1.0-alpha.5
+    validations:
+      required: true
+  - type: input
+    id: windows-version
+    attributes:
+      label: Windows version
+      placeholder: Windows 11, version 24H2
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: List the smallest sequence that reliably shows the problem.
+      placeholder: |
+        1. Open…
+        2. Choose…
+        3. See…
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Expected and actual result
+      description: Explain what you expected and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Optional screenshots or safe diagnostics
+      description: Remove activation codes, names, church content, private paths, and other sensitive information before attaching anything.
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy check
+      options:
+        - label: I removed activation codes, credentials, personal information, real church data, private paths, databases, and backups.
+          required: true

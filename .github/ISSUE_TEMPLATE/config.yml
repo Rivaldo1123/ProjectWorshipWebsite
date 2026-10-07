@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Read the current release notes
+    url: https://github.com/Rivaldo1123/ProjectWorship-updates/releases
+    about: Check published changes and known alpha limitations before reporting a problem.
