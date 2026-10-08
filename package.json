@@ -1,11 +1,14 @@
 {
   "name": "project-worship-website",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "type": "module",
   "scripts": {
     "build": "node scripts/build.mjs",
     "test": "node --test",
-    "verify": "node scripts/verify-site.mjs"
+    "verify": "node scripts/verify-site.mjs",
+    "serve": "node scripts/serve-worker.mjs",
+    "browser-qa": "node scripts/browser-qa.mjs",
+    "check": "node --test && node scripts/build.mjs && node scripts/verify-site.mjs"
   }
 }

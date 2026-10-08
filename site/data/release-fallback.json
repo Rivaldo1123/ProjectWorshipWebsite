@@ -1,7 +1,6 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "sourceStatus": "verified-fallback",
-  "lastCheckedAt": "2026-10-07T21:30:00.000Z",
   "channel": "alpha",
   "version": "0.1.0-alpha.5",
   "tag": "v0.1.0-alpha.5",
@@ -11,7 +10,10 @@
   "architecture": "Windows x64",
   "signing": {
     "status": "unsigned",
-    "label": "Unsigned — Windows may show an unknown-publisher warning"
+    "label": "Not Authenticode-signed",
+    "publisher": null,
+    "verifiedAt": "2026-10-08T14:25:13.486Z",
+    "evidence": "The verified installer bytes contain no PE Authenticode certificate table. This does not establish publisher identity or independent security review."
   },
   "asset": {
     "name": "Project-Worship-0.1.0-alpha.5-setup.exe",
@@ -21,18 +23,48 @@
     "sha256": "c6a9bc5b9d3bf3ad4b59aad5dcb56babaad2e0b273883fcc4948744f2d6af832",
     "url": "https://github.com/Rivaldo1123/ProjectWorship-updates/releases/download/v0.1.0-alpha.5/Project-Worship-0.1.0-alpha.5-setup.exe"
   },
-  "highlights": [
-    "Stronger encrypted backup and restore verification, recovery, and retention-safe failure handling.",
-    "More reliable Preview-to-Live identity, output recovery, display state, and editor draft retention.",
-    "Live Tools keeps identity, current context, Close, and recovery actions reachable while content scrolls.",
-    "Compact Resources exposes every category through a labelled, keyboard-reachable overflow.",
-    "Safer backup-worker startup retry and operation-owned cleanup."
-  ],
-  "limitations": [
-    "The installer and application are not Authenticode-signed. Verify the SHA-256 and keep Windows protections enabled.",
-    "Fresh-profile clean installation, physical projector and reconnect testing, real media audio, and a 60-minute rehearsal remain incomplete.",
-    "Narrator, NVDA, and native Windows High Contrast checks remain incomplete.",
-    "Fresh second-Windows-user portable recovery remains unverified.",
-    "Backup and restore responsiveness did not meet the predeclared 500 ms target in retained evidence."
-  ]
+  "notes": {
+    "highlights": [
+      "Stronger encrypted backup and restore verification, recovery, and retention-safe failure handling.",
+      "More reliable Preview-to-Live identity, output recovery, display state, and editor draft retention.",
+      "Live Tools keeps identity, current context, Close, and recovery actions reachable while content scrolls.",
+      "Compact Resources exposes every category through a labelled, keyboard-reachable overflow.",
+      "Safer backup-worker startup retry and operation-owned cleanup."
+    ],
+    "highlightsStatus": "reviewed",
+    "highlightsMessage": null,
+    "limitations": [
+      "The installer and application are not Authenticode-signed. Verify the SHA-256 and keep Windows protections enabled.",
+      "Fresh-profile clean installation, physical projector and reconnect testing, real media audio, and a 60-minute rehearsal remain incomplete.",
+      "Narrator, NVDA, and native Windows High Contrast checks remain incomplete.",
+      "Fresh second-Windows-user portable recovery remains unverified.",
+      "Backup and restore responsiveness did not meet the predeclared 500 ms target in retained evidence."
+    ],
+    "limitationsStatus": "reviewed",
+    "limitationsMessage": null
+  },
+  "verification": {
+    "lastSuccessfulAt": "2026-10-08T14:25:13.486Z",
+    "lastAttemptedAt": "2026-10-08T14:25:13.486Z",
+    "refreshOutcome": "verified",
+    "sourceRelease": {
+      "repository": "Rivaldo1123/ProjectWorship-updates",
+      "tag": "v0.1.0-alpha.5",
+      "url": "https://github.com/Rivaldo1123/ProjectWorship-updates/releases/tag/v0.1.0-alpha.5",
+      "publishedAt": "2026-10-07T17:57:16Z"
+    },
+    "selectedAsset": {
+      "name": "Project-Worship-0.1.0-alpha.5-setup.exe",
+      "url": "https://github.com/Rivaldo1123/ProjectWorship-updates/releases/download/v0.1.0-alpha.5/Project-Worship-0.1.0-alpha.5-setup.exe",
+      "size": 106615013,
+      "sha256": "c6a9bc5b9d3bf3ad4b59aad5dcb56babaad2e0b273883fcc4948744f2d6af832"
+    },
+    "binaryVerification": {
+      "verifiedAt": "2026-10-08T14:25:13.486Z",
+      "bytesMatched": true,
+      "sha256Matched": true,
+      "authenticodeTableBytes": 0
+    },
+    "skippedNewer": []
+  }
 }

@@ -1,0 +1,9 @@
+{
+  "0.1.0-alpha.5": {
+    "status": "unsigned",
+    "sha256": "c6a9bc5b9d3bf3ad4b59aad5dcb56babaad2e0b273883fcc4948744f2d6af832",
+    "label": "Not Authenticode-signed",
+    "verifiedAt": "2026-10-08T14:25:13.486Z",
+    "evidence": "The verified installer bytes contain no PE Authenticode certificate table. This does not establish publisher identity or independent security review."
+  }
+}

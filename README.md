@@ -1,24 +1,35 @@
 # Project Worship website
 
-Official public download website for Project Worship. The site explains the product, links directly to the published Windows installer in `Rivaldo1123/ProjectWorship-updates`, and provides installation, release, and support guidance.
+Official public download and support website for Project Worship. The site explains the product, links directly to the published Windows installer in `Rivaldo1123/ProjectWorship-updates`, and provides release, installation, upgrade, privacy, and issue-reporting guidance.
 
-## Local build
+## Stack and local checks
 
-Requires Node.js 20 or newer; there are no package dependencies.
+The frontend is dependency-free HTML, CSS, and JavaScript. A Cloudflare-compatible Worker serves the generated site and the same-origin reporting API; D1 provides short-lived distributed rate-limit and idempotency state. Node.js 24 LTS is the tested build runtime. No installer is stored in this repository.
 
 ```powershell
 node --test
 node scripts/build.mjs
 node scripts/verify-site.mjs
+node scripts/serve-worker.mjs
 ```
 
-Serve `dist/` with any static HTTP server. The build checks GitHub Releases for the newest valid alpha and writes a verified release manifest. If GitHub is unavailable or returns an incomplete release, the checked-in last-known-good manifest is retained. The browser repeats the same validated read-only check when the page opens and otherwise keeps the build manifest.
+Open `http://127.0.0.1:4173`. A local server keeps reporting disabled unless a deliberately isolated test environment is supplied.
 
-## Release maintenance
+## Release data
 
-1. Publish the application release only in `Rivaldo1123/ProjectWorship-updates`.
-2. Run `node scripts/build.mjs` to refresh and validate website release data.
-3. Run `node --test` and `node scripts/verify-site.mjs`.
-4. Review any version-specific guidance, screenshots, and limitations before publishing the website.
+The build requests the public Releases API with a 12-second timeout and 2 MB response limit, excludes drafts and stable releases under the Alpha policy, orders parsed versions numerically, and accepts exactly one expected installer with a strict GitHub URL, positive size, and SHA-256 digest. `site/data/release-fallback.json` is the last-known-good record. Failed refreshes update only the attempt time and outcome; they do not rewrite its successful verification time.
 
-Never copy an installer into this repository. Never add application source, credentials, activation codes, church workspaces, logs, or private user data.
+Static HTML and `data/release.json` are rendered from the same validated object. The browser does not independently mix in live GitHub fields. Before accepting a new release, run `node scripts/verify-installer.mjs`, review signing evidence and notes, then update the fallback and version-keyed signing record. Revoked or unsafe tags belong in `site/data/release-policy.json`; the selector will not fall back from the newest tag when it is listed there.
+
+## Reporting status
+
+The reporting API is fail-closed. Deployment without the dedicated GitHub App secrets leaves the form usable for preparation/review but disables final on-site submission. Do not substitute a personal access token. See [reporting operations](docs/REPORTING-OPERATIONS.md), [deployment](docs/DEPLOYMENT.md), and the [threat model](docs/THREAT-MODEL.md).
+
+## Evidence and security
+
+- [Screenshot provenance](docs/screenshots-provenance.json)
+- [Security and advisory review](docs/SECURITY-REVIEW.md)
+- [ASVS coverage](docs/ASVS-COVERAGE.md)
+- [SPDX SBOM](sbom.spdx.json)
+
+Never add application source, activation data, credentials, church workspaces, private logs, user data, or installer binaries to this repository.

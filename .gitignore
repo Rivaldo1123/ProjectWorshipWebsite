@@ -1,4 +1,9 @@
 dist/
 .sites-runtime/
 *.log
-
+.chrome-profile-evidence/
+.edge-*/
+evidence/final-website/download-1280x720.png
+evidence/final-website/features-1280x720.png
+evidence/final-website/report-section-1440x900.png
+evidence/final-website/release-notes-1280x720.png

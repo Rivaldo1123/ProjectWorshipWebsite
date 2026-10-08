@@ -11,6 +11,9 @@ const required = [
   'app.js',
   'release-selection.js',
   'data/release.json',
+  'server/index.js',
+  'server/reporting.js',
+  'server/assets.js',
   'assets/logo.svg',
   'assets/screenshots/service.png',
   'assets/screenshots/library.png',
@@ -21,17 +24,21 @@ for (const path of required) await access(join(dist, path))
 
 const html = await readFile(join(dist, 'index.html'), 'utf8')
 const release = JSON.parse(await readFile(join(dist, 'data', 'release.json'), 'utf8'))
-const forbidden = ['__SITE_ORIGIN__', 'example.com', 'TODO', 'PLACEHOLDER', 'file://']
+const forbidden = ['__SITE_ORIGIN__', '__RELEASE_', '__DOWNLOAD_', 'example.com', 'TODO', 'PLACEHOLDER', 'file://']
 for (const value of forbidden) {
   if (html.includes(value)) throw new Error(`Built HTML contains ${value}`)
 }
 
-if (!/^0\.1\.0-alpha\.\d+$/.test(release.version)) throw new Error('Release version is not a parsed alpha')
+if (!/^\d+\.\d+\.\d+-alpha\.\d+$/.test(release.version)) throw new Error('Release version is not a parsed alpha')
 if (!/^https:\/\/github\.com\/Rivaldo1123\/ProjectWorship-updates\/releases\/download\//.test(release.asset.url)) {
   throw new Error('Installer does not point to the updates repository')
 }
 if (!/^[0-9a-f]{64}$/.test(release.asset.sha256)) throw new Error('Installer SHA-256 is invalid')
 if (!html.includes(release.asset.url)) throw new Error('No-script download fallback differs from the manifest')
+for (const value of [release.version, release.asset.name, release.asset.sha256, release.releaseUrl, release.architecture, release.signing.label]) {
+  if (!html.includes(value)) throw new Error(`No-script release field differs from the manifest: ${value}`)
+}
+if (!html.includes('data-report-form') || !html.includes('data-public-consent')) throw new Error('On-site reporting form is missing')
 
 function luminance(hex) {
   const channels = [1, 3, 5].map((index) => Number.parseInt(hex.slice(index, index + 2), 16) / 255)
@@ -79,9 +86,14 @@ async function textFiles(directory) {
 
 for (const path of await textFiles(dist)) {
   const text = await readFile(path, 'utf8')
-  if (/gho_[A-Za-z0-9_]+|-----BEGIN (?:RSA |EC )?PRIVATE KEY-----/.test(text)) {
+  if (/(?:gh[opsu]|github_pat)_[A-Za-z0-9_]{20,}|-----BEGIN (?:RSA |EC )?PRIVATE KEY-----\s+[A-Za-z0-9+/]{40,}/.test(text)) {
     throw new Error(`Possible credential in ${path}`)
   }
+}
+
+const worker = await readFile(join(dist, 'server', 'index.js'), 'utf8')
+for (const requiredHeader of ['content-security-policy', 'x-content-type-options', 'referrer-policy', 'permissions-policy', 'strict-transport-security']) {
+  if (!worker.includes(requiredHeader)) throw new Error(`Worker is missing ${requiredHeader}`)
 }
 
 console.log(JSON.stringify({ verified: true, files: required.length, version: release.version }))
