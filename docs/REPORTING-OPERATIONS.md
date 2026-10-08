@@ -14,7 +14,7 @@ No dedicated GitHub App is currently configured. Production therefore keeps the 
 - Text: title 8–120 characters; version 1–60; environment 2–160; steps 10–3000; expected/actual 4–1500; optional context 0–1500; 7500 characters total.
 - Budget: three submissions per pseudonymous `/24` IPv4 or `/64` IPv6 bucket per ten minutes, 25 globally per day, two concurrent GitHub submissions.
 - Upstream: eight-second timeout; three recent failures open a five-minute circuit breaker.
-- State: idempotency records and keyed network buckets are retained for no more than seven days by expiry/cleanup. Raw IPs, cookies, authorization headers, full user-agent strings, and report bodies are not deliberately stored in D1 or application logs.
+- State: idempotency records and keyed network buckets are retained for no more than seven days by expiry/cleanup. Raw IPs, cookies, authorization headers, full user-agent strings, and report bodies are not deliberately stored in D1 or copied to public issues. The hosting provider processes ordinary request metadata and may retain raw network address and user-agent values in provider logs for its provider-controlled retention period; the website does not expose those logs publicly and cannot configure their precise retention here.
 
 The network bucket is HMAC-protected with a server secret. `CF-Connecting-IP` is trusted only because it is hosting-derived; visitor-supplied forwarding headers are ignored. This is abuse reduction, not identity.
 
