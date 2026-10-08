@@ -1,0 +1,105 @@
+{
+  "checkedAt": "2026-10-08T14:47:02.560Z",
+  "origin": "http://127.0.0.1:4173",
+  "browser": "Microsoft Edge headless via Chrome DevTools Protocol",
+  "checks": {
+    "desktop1440": {
+      "viewport": [
+        1440,
+        900
+      ],
+      "horizontalOverflow": false,
+      "title": "Project Worship — Download for Windows",
+      "h1Count": 1,
+      "unlabeledControls": 0,
+      "imagesMissingAlt": 0
+    },
+    "viewerFit": {
+      "mode": "fit",
+      "withinHorizontal": true,
+      "withinVertical": true
+    },
+    "viewerActual": {
+      "mode": "actual",
+      "leftOrigin": true,
+      "allEdgesReachable": true,
+      "natural": [
+        1424,
+        835
+      ],
+      "scroll": [
+        1424,
+        835
+      ],
+      "client": [
+        1365,
+        771
+      ]
+    },
+    "viewerFocusRestored": true,
+    "tablet768": {
+      "viewport": [
+        768,
+        1024
+      ],
+      "horizontalOverflow": false,
+      "title": "Project Worship — Download for Windows",
+      "h1Count": 1,
+      "unlabeledControls": 0,
+      "imagesMissingAlt": 0
+    },
+    "mobile390": {
+      "viewport": [
+        390,
+        844
+      ],
+      "horizontalOverflow": false,
+      "title": "Project Worship — Download for Windows",
+      "h1Count": 1,
+      "unlabeledControls": 0,
+      "imagesMissingAlt": 0
+    },
+    "reflow320": {
+      "viewport": [
+        320,
+        844
+      ],
+      "horizontalOverflow": false,
+      "title": "Project Worship — Download for Windows",
+      "h1Count": 1,
+      "unlabeledControls": 0,
+      "imagesMissingAlt": 0
+    },
+    "zoomEquivalent200Percent": {
+      "viewport": [
+        640,
+        900
+      ],
+      "horizontalOverflow": false,
+      "title": "Project Worship — Download for Windows",
+      "h1Count": 1,
+      "unlabeledControls": 0,
+      "imagesMissingAlt": 0
+    }
+  },
+  "screenshots": [
+    "hero-1440x900.png",
+    "features-1440x900.png",
+    "screenshots-1440x900.png",
+    "download-1440x900.png",
+    "getting-started-1440x900.png",
+    "release-notes-1440x900.png",
+    "report-1440x900.png",
+    "security-privacy-1440x900.png",
+    "viewer-fit-1440x900.png",
+    "viewer-actual-1440x900.png",
+    "report-validation-1440x900.png",
+    "report-review-1440x900.png",
+    "report-success-synthetic-1440x900.png",
+    "tablet-768x1024.png",
+    "mobile-390x844.png",
+    "reflow-320x844.png",
+    "404-1280x720.png"
+  ],
+  "failures": []
+}

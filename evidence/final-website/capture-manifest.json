@@ -1,0 +1,27 @@
+{
+  "capturedAt": "2026-10-08T14:47:02.560Z",
+  "sourceCommit": "87a9c3363998f83f8160dfd74311e522a4bd3495",
+  "sourceOrigin": "http://127.0.0.1:4173",
+  "browser": "Microsoft Edge headless via Chrome DevTools Protocol",
+  "reducedMotion": true,
+  "processing": "Original viewport captures; no cropping, resizing, compositing, or annotation.",
+  "captures": [
+    { "path": "hero-1440x900.png", "viewport": "1440x900", "route": "/", "state": "hero and primary download" },
+    { "path": "features-1440x900.png", "viewport": "1440x900", "route": "/#features", "state": "features" },
+    { "path": "screenshots-1440x900.png", "viewport": "1440x900", "route": "/#screenshots", "state": "three authentic screenshot previews" },
+    { "path": "viewer-fit-1440x900.png", "viewport": "1440x900", "route": "/#screenshots", "state": "viewer fit mode" },
+    { "path": "viewer-actual-1440x900.png", "viewport": "1440x900", "route": "/#screenshots", "state": "viewer actual-size mode at bottom-right scroll extent" },
+    { "path": "download-1440x900.png", "viewport": "1440x900", "route": "/#download", "state": "release details and checksum" },
+    { "path": "getting-started-1440x900.png", "viewport": "1440x900", "route": "/#getting-started", "state": "installation, compatibility, and upgrade guidance" },
+    { "path": "release-notes-1440x900.png", "viewport": "1440x900", "route": "/#release-notes", "state": "release notes and Alpha limitations" },
+    { "path": "report-1440x900.png", "viewport": "1440x900", "route": "/#report", "state": "report form and fail-closed production configuration" },
+    { "path": "report-validation-1440x900.png", "viewport": "1440x900", "route": "/#report", "state": "accessible validation errors" },
+    { "path": "report-review-1440x900.png", "viewport": "1440x900", "route": "/#report", "state": "exact public content review and unchecked consent" },
+    { "path": "report-success-synthetic-1440x900.png", "viewport": "1440x900", "route": "/#report", "state": "synthetic local confirmed-success UI; not a real issue" },
+    { "path": "security-privacy-1440x900.png", "viewport": "1440x900", "route": "/#security", "state": "confidential route unavailable notice and privacy information" },
+    { "path": "tablet-768x1024.png", "viewport": "768x1024", "route": "/#screenshots", "state": "tablet layout" },
+    { "path": "mobile-390x844.png", "viewport": "390x844", "route": "/", "state": "phone hero and navigation" },
+    { "path": "reflow-320x844.png", "viewport": "320x844", "route": "/#report", "state": "320-pixel reflow" },
+    { "path": "404-1280x720.png", "viewport": "1280x720", "route": "/not-found", "state": "404" }
+  ]
+}
